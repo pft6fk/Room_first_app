@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/listFragment">
+
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.roomfirstapp.fragments.add.AddFragment"
+        android:label="Fragment add"
+        tools:layout="@layout/fragment_add" >
+        <action
+            android:id="@+id/action_addFragment_to_listFragment"
+            app:destination="@id/listFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.example.roomfirstapp.fragments.list.ListFragment"
+        android:label="List Fragment"
+        tools:layout="@layout/fragment_list">
+        <action
+            android:id="@+id/action_listFragment_to_addFragment"
+            app:destination="@id/addFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_fragmentUpdate"
+            app:destination="@id/fragmentUpdate" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentUpdate"
+        android:name="com.example.roomfirstapp.fragments.update.FragmentUpdate"
+        android:label="Update Fragment"
+        tools:layout="@layout/fragment_update">
+        <action
+            android:id="@+id/action_fragmentUpdate_to_listFragment"
+            app:destination="@id/listFragment" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.example.roomfirstapp.model.User" />
+    </fragment>
+</navigation>
